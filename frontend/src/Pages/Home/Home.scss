@@ -1,0 +1,119 @@
+form {
+  &.filter-form {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex: 1 1 auto;
+    .input-group {
+      gap: 16px;
+      align-items: center;
+    }
+    .form-select {
+      border-radius: 4px !important;
+    }
+    .select-label {
+      background: #e9e8ec;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px !important;
+      color: #9d9ba1;
+      font-weight: 500;
+    }
+    h6 {
+      flex: none;
+      margin-bottom: 0;
+    }
+  }
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adds space above the pagination controls */
+  gap: 15px; /* Space between buttons */
+}
+
+.pagination-controls span {
+  font-weight: bold;
+}
+
+.card-wrapper {
+  margin-bottom: 20px; /* Add space between task cards and pagination controls */
+}
+
+.empty-state {
+  text-align: center;
+  color: #555;
+  margin-top: 20px;
+}
+
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-top: 24px;
+  .card {
+    padding: 10px;
+    border-radius: 6px;
+    border-color: #b4b9c9;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .heading-title {
+      font-size: 14px;
+      color: #56555c;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .status-heading {
+      background: rgba(76, 103, 133, 0.7);
+      border-radius: 3px;
+      padding: 3px 8px;
+      width: fit-content;
+      font-size: 10px;
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 16px;
+    }
+    .date-data {
+      background: #e9e8ec;
+      border-radius: 3px;
+      padding: 3px 8px;
+      width: fit-content;
+      font-size: 10px;
+      color: #9d9ba1;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+@media (max-width: 980px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  form {
+    &.filter-form {
+        flex-wrap: wrap;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .card-wrapper {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  form {
+    &.filter-form {
+        flex-wrap: wrap;
+    }
+  }
+}
+
