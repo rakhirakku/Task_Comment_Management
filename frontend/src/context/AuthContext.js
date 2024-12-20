@@ -8,16 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem("auth_token"));
-
-  // Check token on load and fetch user data
-//   useEffect(() => {
-//     if (token) {
-//       axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-//       fetchUser();
-//     } else {
-//       setLoading(false); // No token, finish loading
-//     }
-//   }, [token]);
+  const API_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     const token = localStorage.getItem('auth_token');
@@ -37,7 +28,7 @@ export const AuthProvider = ({ children }) => {
             throw new Error("No authentication token found");
         }
 
-        const response = await axios.get('http://127.0.0.1:8002/api/user', {
+        const response = await axios.get(`${API_URL}/user`, {
             headers: {
             'Authorization': `Bearer ${token}`, // Use token from localStorage
             },
@@ -55,11 +46,10 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8002/api/login", { email, password });
+      const response = await axios.post(`${API_URL}/login`, { email, password });
       const { token } = response.data;
       localStorage.setItem("auth_token", token); // Store token
       setToken(token); // Update token in state
-      console.log("aaaaa",response.data)
       fetchUser(); // Fetch user after successful login
     } catch (error) {
       console.error("Login failed", error);
@@ -69,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   // Register function
   const register = async (name, email, password, password_confirmation) => {
     try {
-      await axios.post("http://127.0.0.1:8002/api/register", {
+      await axios.post(`${API_URL}/register`, {
         name,
         email,
         password,

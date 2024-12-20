@@ -1,0 +1,19 @@
+# Node.js
+frontend/node_modules/
+npm-debug.log
+package-lock.json
+
+# Laravel
+backend/vendor/
+.env
+.env.*.backup
+.idea
+.vscode
+/storage/*
+/public/storage
+.phpunit.result.cache
+/node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

@@ -85,3 +85,30 @@ git clone https://github.com/<your-username>/Task_Comment_Management.git
 cd Task_Comment_Management  
 
 Navigate to Backend and Frontend Follow the setup steps for both the backend and frontend.
+
+# Test the API with Postman or any REST Client
+## Endpoints:
+
+## Create Task:
+### POST http://127.0.0.1:8000/api/tasks
+#### Payload:   
+{ "title": "Sample Task", "description":
+"Details of the task", "status": "pending",
+"due_date": "YYYY-MM-DD" }
+## Update Task:
+### PUT http://127.0.0.1:8000/api/tasks/{id}
+#### Payload: { "title": "Updated Task", "status":"in-progress" }
+## Delete Task:
+### DELETE http://127.0.0.1:8000/api/tasks/{id}
+## List Tasks:
+### GET http://127.0.0.1:8000/api/tasks  
+### GET http://127.0.0.1:8000/api/tasks?status=in-progress&due_date_from=YYYY-MM-DD&due_date_to=YYYY-MM-DD  
+
+## Create Comment for a Task:  
+
+### POST http://127.0.0.1:8000/api/tasks/{task_id}/comments  
+
+#### Payload: { "content": "This is a comment", "author_name": "John Doe" }  
+
+## List Comments for a Task:
+### GET http://127.0.0.1:8000/api/tasks/{task_id}/comments
